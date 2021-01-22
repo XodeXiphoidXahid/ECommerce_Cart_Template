@@ -5,17 +5,17 @@ using System.Text;
 
 namespace ECommerce
 {
-    public class SmartCart : IShoppingCart<SmartProduct>
+    public class SmartCart : IShoppingCart<SuperSmartProduct>
     {
-        public ICartItem<SmartProduct>[] Items { get; private set; }
+        public ICartItem<SuperSmartProduct>[] Items { get; private set; }
         public static int itemCount;
         public SmartCart()
         {
-            Items = new ICartItem<SmartProduct>[100];
+            Items = new ICartItem<SuperSmartProduct>[100];
             itemCount = 0;
         }
 
-        public void AddItem(SmartProduct item, int quantity)
+        public void AddItem(SuperSmartProduct item, int quantity)
         {
             Items[itemCount++] = new CartItem()
             {
@@ -29,7 +29,8 @@ namespace ECommerce
             var total = 0.0;
             foreach(var item in Items)
             {
-                total += item.Product.Price;
+                if(item!=null)
+                    total += (item.Product.Price * item.Quantity);
             }
             return total;
         }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ECommerce
 {
-    class CartItem : ICartItem<SmartProduct>
+    class CartItem : ICartItem<SuperSmartProduct>
     {
         public IProduct Product { get; set; }
         public int Quantity { get; set; }
