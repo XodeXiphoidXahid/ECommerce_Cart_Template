@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ECommerce
 {
-    public class SmartCart : IShoppingCart<SuperSmartProduct>
+    public class SmartCart : IShoppingCart<SuperSmartProduct>//edike generics SuperSmartProduct kn use kora holo?
     {
         public ICartItem<SuperSmartProduct>[] Items { get; private set; }
         public static int itemCount;
@@ -30,7 +30,7 @@ namespace ECommerce
             foreach(var item in Items)
             {
                 if(item!=null)
-                    total += (item.Product.Price * item.Quantity);
+                    total += (item.Product.Price*item.Quantity);
             }
             return total;
         }
